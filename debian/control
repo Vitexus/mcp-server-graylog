@@ -1,0 +1,31 @@
+Source: mcp-server-graylog
+Section: python
+Priority: optional
+Maintainer: "Vítězslav Dvořák" <info@vitexsoftware.cz>
+Build-Depends: debhelper-compat (= 13), dh-python, pybuild-plugin-pyproject, python3-all, python3-setuptools
+Standards-Version: 4.6.2
+Homepage: https://github.com/Vitexus/mcp-server-graylog
+Vcs-Git: https://github.com/Vitexus/mcp-server-graylog.git
+Vcs-Browser: https://github.com/Vitexus/mcp-server-graylog
+
+Package: mcp-server-graylog
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends},
+ python3-mcp (>= 1:2.0.0),
+ python3-mcp-types,
+ python3-fastmcp (>= 4.0.0~b1),
+Description: stdio MCP bridge to the MCP endpoint built into Graylog 7.1+
+ Model Context Protocol (MCP) server that forwards to the experimental
+ /api/mcp endpoint of a Graylog server. It builds the required Basic
+ authentication header from GRAYLOG_API_TOKEN, runs read-only by default
+ and exposes whatever tools the connected Graylog offers.
+
+Package: mcprack-mcp-server-graylog
+Architecture: all
+Depends: ${misc:Depends},
+ mcprack (>= 1.5.4),
+ mcp-server-graylog (= ${binary:Version}),
+Description: Registers Graylog MCP server into mcprack catalog
+ Companion package for mcp-server-graylog. Installing it registers
+ the mcp-server-graylog binary as an available MCP server in the
+ local mcprack instance; removing it unregisters it again.

@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=mcp_server_graylog
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/mcp-server-graylog
+
+override_dh_auto_test:
+	# Run post-install via debian/tests/control (autopkgtest); build chroots
+	# do not guarantee python3-mcp / python3-fastmcp.

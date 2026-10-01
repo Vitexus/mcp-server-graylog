@@ -1,0 +1,9 @@
+{
+  "identifier": "mcp-server-graylog",
+  "name": "Graylog MCP Server",
+  "description": "stdio bridge to the MCP endpoint built into Graylog 7.1+",
+  "category": "monitoring",
+  "prompts": [],
+  "homepage": "https://github.com/Vitexus/mcp-server-graylog",
+  "author": "Vítězslav Dvořák <info@vitexsoftware.cz>"
+}

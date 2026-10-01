@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-server-graylog"
+version = "1.0.0"
+description = "stdio bridge to the MCP endpoint built into Graylog 7.1+"
+authors = [{ name = "CyberVitexus", email = "info@vitexsoftware.cz" }]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+keywords = ["mcp", "graylog", "model-context-protocol", "logging"]
+dependencies = ["mcp>=2.0.0", "fastmcp>=4.0.0b1"]
+
+[project.scripts]
+mcp-server-graylog = "mcp_server_graylog.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
